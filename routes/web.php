@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [FormController::class, 'index']);
+Route::post('/form-submit', [FormController::class, 'formSubmit'])->name('form-submit');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/dashboard', [HomeController::class, 'dashboard']);
+
+
+//redirect /home to /dashboard. Status is 302 "temporay" redirect.
+Route::get('/home', function () {return redirect('/dashboard');});
