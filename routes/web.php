@@ -35,3 +35,6 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 Route::get('/home', function () {
     return redirect('/dashboard');
 });
+
+// Task-6 routes
+Route::post('/contact', ContactController::class);
