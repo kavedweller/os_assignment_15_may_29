@@ -18,9 +18,13 @@ class FormController extends Controller
         $email = $request->input('email');
         $password = $request->input("password");
 
-        //strlen() returns 0 if the string is empty
-        if (strlen($name)>=2 && strlen($password)>=8 && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Successfully received',
+            'data' => [
+                'name' => $name,
+                'email' => $email
+            ]
+        ]);
     }
 }
