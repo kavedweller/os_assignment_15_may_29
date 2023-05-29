@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\AuthMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [FormController::class, 'index']);
+// Task-8 route
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/register', [FormController::class, 'index']);
 Route::post('/form-submit', [FormController::class, 'formSubmit'])->name('form-submit');
 
-Route::get('/home', [HomeController::class, 'index']);
+//Route::get('/home', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
 
@@ -37,4 +44,4 @@ Route::get('/home', function () {
 });
 
 // Task-6 routes
-Route::post('/contact', ContactController::class);
+Route::get('/contact', ContactController::class);

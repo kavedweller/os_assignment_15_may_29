@@ -24,9 +24,11 @@ class ContactController extends Controller
         $message = $request->input('message');
 
         // Send email
+        Mail::raw("Name: $name\nEmail: $email\nMessage: $message", function ($message) {
+            $message->to('a_kabir@linuxmail.org')
+                ->subject('Contact Form Laravel Assignment');
+        });
 
-
-        return redirect()->back()->with('success', 'Thank you');
-    }
+        return redirect()->back()->with('success', 'Done');
     }
 }

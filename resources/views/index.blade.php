@@ -16,7 +16,7 @@
                     <div class="card-header text-center">Module 15 Assignment Form</div>
                     <div class="card-body">
                         <p class="text-success text-center"></p>
-                        <form action="{{route('form-submit')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('form-submit')}}" method="POST">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-3">Name</label>

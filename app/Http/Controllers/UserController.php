@@ -9,7 +9,7 @@ class UserController extends Controller
     //
     public function index()
     {
-        return view('authentic.profile');
+        return view('login');
     }
 
     public function formSubmit(Request $request)
